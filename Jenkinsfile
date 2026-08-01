@@ -23,7 +23,9 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                bat '"C:\\Program Files\\nodejs\\npx.cmd" vercel --prod --yes --token=%VERCEL_TOKEN%'
+                bat 'set APPDATA=C:\\Users\\owaiz\\AppData\\Roaming'
+                bat 'set PATH=%PATH%;C:\\Users\\owaiz\\AppData\\Roaming\\npm'
+                bat 'vercel --prod --yes --token=%VERCEL_TOKEN%'
             }
         }
     }
